@@ -7,13 +7,14 @@ requires_kernel_header = true
 #
 # UEFI FD Configs
 #
-# 0xA7100000 + 0x300000 sits in the stock 4 MiB FD window at 0xA7000000,
-# the same layout the SM8450 ingres platform uses. REQUIRED: confirm against
-# cupid's stock uefiplat.cfg from HyperOS 3.0.4.0.VLCMIXM before flashing.
+# Measured from cupid's stock uefi.img (HyperOS 3.0.4.0.VLCMIXM): it is an
+# ELF64 with one PT_LOAD at vaddr 0xA7000000, memsz 0x2A0000, entry 0xA7000000;
+# the uefi partition is exactly 0x2A2000 bytes. The Mu FD must live in that
+# window, not at ingres's 0xA7100000.
 #
 [uefi_fd]
-base = 0xA7100000
-size = 0x300000
+base = 0xA7000000
+size = 0x2A2000
 
 #
 # Android Boot Image Kernel Configs

@@ -77,7 +77,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferFontScale|3
-  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|30000
+  # 0.25 s per console line so a phone video captures driver errors, and
+  # errors only so the UNIXNURAMDISK diagnostics are not lost in the noise.
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|250000
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x80000000
 
   #
   # Platform PEI

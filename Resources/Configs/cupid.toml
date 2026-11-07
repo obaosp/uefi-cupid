@@ -29,9 +29,10 @@ append_dtb         = true
 # header_version 0 matches sheng's working image. ingres uses 4; cupid's ABL
 # behaviour is unverified, so stage 0 keeps the header the proven port uses.
 #
+# cupid's stock boot image is v4 and v0 did not hand off (ABL stayed in
+# fastboot with kernel_addr 0x8000); v4 makes ABL use the arm64 Image header's
+# text_offset, which BootShim sets to 0xA7000000. base/kernel_offset/tags are
+# ignored for v4.
 [boot_image]
-header_version = 0
-base = 0x00000000
-kernel_offset = 0x00008000
-tags_offset = 0x01e00000
+header_version = 4
 pagesize = 4096

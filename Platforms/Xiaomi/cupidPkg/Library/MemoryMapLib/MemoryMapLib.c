@@ -32,7 +32,12 @@ gMemoryDescriptor[] = {
   {"VM PIL",            0xE0000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"TZApps Reserved",   0xEA000000, 0x07400000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"DXE Heap",          0xF8000000, 0x07C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"HYP Reserved",      0x830000000,0x10000000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  // High DRAM from the phone's /proc/iomem. ingress has no conventional high
+  // banks, so DarwinBoot could not allocate its kernel window (Out of resources).
+  {"DRAM bank 2",       0x800000000, 0x39700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"DRAM bank 2 gap",   0x839D00000, 0x01E00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"DRAM bank 3",       0x840000000, 0x12EF68000,AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"DRAM bank 3 tail",  0x96EF68000, 0x11098000,AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
 
   // Other Memory Regions
   {"IMEM Base",         0x14680000, 0x0002A000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},

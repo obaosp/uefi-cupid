@@ -1,0 +1,36 @@
+#
+# Boot Shim Configs
+#
+[boot_shim]
+requires_kernel_header = true
+
+#
+# UEFI FD Configs
+#
+# 0xA7100000 + 0x300000 sits in the stock 4 MiB FD window at 0xA7000000,
+# the same layout the SM8450 ingres platform uses. REQUIRED: confirm against
+# cupid's stock uefiplat.cfg from HyperOS 3.0.4.0.VLCMIXM before flashing.
+#
+[uefi_fd]
+base = 0xA7100000
+size = 0x300000
+
+#
+# Android Boot Image Kernel Configs
+#
+[boot_image_kernel]
+kernel_compression = "gzip"
+append_dtb         = true
+
+#
+# Android Boot Image Configs
+#
+# header_version 0 matches sheng's working image. ingres uses 4; cupid's ABL
+# behaviour is unverified, so stage 0 keeps the header the proven port uses.
+#
+[boot_image]
+header_version = 0
+base = 0x00000000
+kernel_offset = 0x00008000
+tags_offset = 0x01e00000
+pagesize = 4096

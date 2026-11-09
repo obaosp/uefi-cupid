@@ -1,3 +1,11 @@
+> [!WARNING]
+> **Work in progress — not a general-purpose firmware.**
+>
+> This fork is being repurposed for the Xiaomi 12 (`cupid`, SM8450) and is part
+> of the unfinished UniXNU cupid port. It does not boot a usable system. Build
+> failures and kernel panics are expected; please do not open issues for them.
+> The upstream sheng text below is stale.
+
 # uefi-sheng
 
 UEFI platform integration for the Xiaomi Pad 6S Pro (sheng, SM8550), using

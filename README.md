@@ -6,6 +6,10 @@
 > failures and kernel panics are expected; please do not open issues for them.
 > The upstream sheng text below is stale.
 
+The cupid port this firmware serves targets **iOS 26.5.2 (23F84)**. See
+[why iOS 26, not iOS 27](https://github.com/obaosp/UniXNU-cupid#why-ios-26-not-ios-27)
+for the 24A446/13432 mismatch that caused the switch.
+
 # uefi-sheng
 
 UEFI platform integration for the Xiaomi Pad 6S Pro (sheng, SM8550), using

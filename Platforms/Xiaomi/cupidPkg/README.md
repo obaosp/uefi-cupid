@@ -41,7 +41,7 @@ The device repository drives the build:
 cd ../UniXNU-cupid
 scripts/install-os-profile.sh ../UniXNU
 cd ../UniXNU
-./unixnu defconfig cupid_ios27_defconfig -D ../UniXNU-cupid
+./unixnu defconfig cupid_ios26_defconfig -D ../UniXNU-cupid
 ./unixnu fetch -D ../UniXNU-cupid
 ./unixnu build firmware -D ../UniXNU-cupid --uefi ../uefi-cupid
 ```
